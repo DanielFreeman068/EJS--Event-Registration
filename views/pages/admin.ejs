@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="/public/css/styles.css">
+    <title>Admin Event Registration</title>
+</head>
+<body>
+    <ul>
+        <% events.forEach(function(event) { %>
+            <li>
+                <strong><%= event.name %></strong><br>
+                <em>Date</em>: <%= event.date %> <br>
+                <em>Type of Event</em> <%= event.type %>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

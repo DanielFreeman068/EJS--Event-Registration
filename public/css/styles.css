@@ -1,0 +1,20 @@
+body{
+    margin:0;
+    padding:0;
+}
+ul{
+    float:left;
+    margin-left:3rem;
+    margin-top:3rem;
+    background-color:rgb(219, 218, 216);
+    padding:25px;
+    box-shadow: 6px 10px 10px 2px black;
+}
+strong{
+    font-family:'Times New Roman', Times, serif;
+    font-size:35px;
+}
+em{
+    font-family:'Times New Roman', Times, serif;
+    font-size:20px;
+}
