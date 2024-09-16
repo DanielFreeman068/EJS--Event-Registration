@@ -1,4 +1,5 @@
 body{
+    background-color: #C8D9E6;
     margin:0;
     padding:0;
 }
@@ -6,9 +7,22 @@ ul{
     float:left;
     margin-left:3rem;
     margin-top:3rem;
-    background-color:rgb(219, 218, 216);
-    padding:25px;
+    background-color:#567C8D;
     box-shadow: 6px 10px 10px 2px black;
+    border: 2px solid black;
+    margin-bottom:5rem;
+}
+li{
+    list-style: none;
+    border-bottom: 2px solid black;
+    margin-top:1rem;
+    margin-right:2rem;
+}
+li:last-child{
+    border-bottom: 2px solid #567C8D;
+}
+li:hover{
+    color:aliceblue
 }
 strong{
     font-family:'Times New Roman', Times, serif;
@@ -17,4 +31,19 @@ strong{
 em{
     font-family:'Times New Roman', Times, serif;
     font-size:20px;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    margin-top:5rem;
+    padding: 10px 0;
+    width: 100%;
+    position:fixed;
+    bottom:0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
 }

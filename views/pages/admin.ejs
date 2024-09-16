@@ -7,14 +7,7 @@
     <title>Admin Event Registration</title>
 </head>
 <body>
-    <ul>
-        <% events.forEach(function(event) { %>
-            <li>
-                <strong><%= event.name %></strong><br>
-                <em>Date</em>: <%= event.date %> <br>
-                <em>Type of Event</em> <%= event.type %>
-            </li>
-        <% }); %>
-    </ul>
+    <%- include('../partials/body') %>
+    <%- include('../partials/footer') %>
 </body>
 </html>
