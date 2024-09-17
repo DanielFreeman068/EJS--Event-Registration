@@ -1,44 +1,36 @@
 [
-    {
-        "name": "Saint Mary's Food Bank",
-        "date": "9/15/2024",
-        "type": "Indoor",
-        "attendees": 0
-    },
-    {
-        "name": "Red Robin",
-        "date": "9/25/2024",
-        "type": "Banquet",
-        "attendees": 0
-    },
-    {
-        "name": "Greenwood Community Center",
-        "date": "10/10/2024",
-        "type": "Outdoor",
-        "attendees": 0
-    },
-    {
-        "name": "Central Library Meeting Room",
-        "date": "10/15/2024",
-        "type": "Indoor",
-        "attendees": 0
-    },
-    {
-        "name": "Skyline Hotel Ballroom",
-        "date": "11/01/2024",
-        "type": "Banquet",
-        "attendees": 0
-    },
-    {
-        "name": "Riverside Park Pavilion",
-        "date": "11/20/2024",
-        "type": "Outdoor",
-        "attendees": 0
-    },
-    {
-        "name": "City Hall Council Chambers",
-        "date": "12/05/2024",
-        "type": "Indoor",
-        "attendees": 0
-    }
+  {
+    "id": "7",
+    "name": "Community Health Clinic 222",
+    "date": "2024-09-26",
+    "description": "Indoor",
+    "attendees": 7
+  },
+  {
+    "id": "8",
+    "name": "Eastside Park Pavilion",
+    "date": "9/22/2024",
+    "description": "Outdoor",
+    "attendees": 2
+  },
+  {
+    "id": "9",
+    "name": "Tech Town Auditorium",
+    "date": "9/23/2024",
+    "description": "Indoor",
+    "attendees": 4
+  },
+  {
+    "id": "10",
+    "name": "Greenwood High School Gym",
+    "date": "9/24/2024",
+    "description": "Indoor",
+    "attendees": 1
+  },
+  {
+    "id": 11,
+    "name": "walk dog",
+    "date": "2024-09-19",
+    "description": "walk the dog at 5pm"
+  }
 ]

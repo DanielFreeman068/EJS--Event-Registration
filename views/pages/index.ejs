@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="/public/css/styles.css">
+    <title>Admin Event Registration</title>
+</head>
+<body>
+    <div class="form">
+        <form action="/events" method="POST">
+            <fieldset>
+                <legend>Add New Event</legend>
+                <input type="text" name="name" placeholder="New event name" required>
+                <input type="text" name="description" placeholder="New event description" required>
+                <input type="date" name="date" required>
+                <button type="submit">Add Event</button>
+            </fieldset>         
+        </form>
+    </div>
+    <!-- <%- include('../partials/body') %> -->
+    <ul>
+        <% events.forEach(event => { %>
+            <li>
+                <div class="event">
+                    <div class="event-details">
+                        <h3 class="event-name"><%= event.name %></h3>
+                        <h5><%= event.date %></h5>
+                        <p class="event-desc"><%= event.description %></p>
+                    </div>
+                    <div class="event-buttons">
+                        <button class="edit-button"><a href="/events/<%= event.id %>/edit">Edit</a></button>
+                        <form action="/events/<%= event.id %>/delete" method="POST" style="display:inline;">
+                            <button class="delete-button" type="submit">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </li>
+        <% }); %>
+    </ul>
+    <%- include('../partials/footer') %>
+</body>
+</html>

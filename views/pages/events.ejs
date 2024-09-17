@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="/public/css/styles.css">
-    <title>Admin Event Registration</title>
+    <title>Edit Event</title>
 </head>
 <body>
-    <%- include('../partials/body') %>
-    <%- include('../partials/footer') %>
+    <h1>Edit Event</h1>
+    <form action="/events/<%= event.id %>" method="POST">
+        <input type="text" name="name" value="<%= event.name %>" required>
+        <input type="date" name="date" value="<%= event.date %>" required></br>
+        <textarea cols="40" rows="10" name="description" required><%= event.description %></textarea>
+        <button type="submit">Update Event</button>
+    </form>
+    <a href="/">Back to list</a>
 </body>
 </html>

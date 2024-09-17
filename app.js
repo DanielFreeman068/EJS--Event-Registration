@@ -1,70 +1,123 @@
+// app.post('/submit', (req, res) => {
+//     const { name, email, event } = req.body;
+//     fs.readFile('data/registrations.json','utf8', (err, data) => {
+//         if(err){console.error(err);}
+//         let jsonData = JSON.stringify(JSON.parse(data));
+//         jsonData.push({
+//             name,
+//             email,
+//             event
+//         });
+//         fs.writeFile('data/registrations.json', JSON.stringify(jsonData) + '\n', (err) => {
+//             if (err) {
+//                 console.error(err);
+//                 res.send('Error Writing to File')
+//             }
+//             res.redirect('/events')
+//         })
+//     })
+// });
 //libraries
 var express = require('express');
 var app = express();
-const PORT = 5000;
 const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
+const PORT = 5000;
 
 //public folder css and middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/public', express.static('public'));
-
-//read data from data.json
-let data = fs.readFileSync(path.join(__dirname, 'data/events.json'), 'utf8');
-let jsonData = JSON.parse(data);
-
-// Handle form submission
-// app.post('/submit', (req, res) => {
-//     const { name, email, event } = req.body;
-//     const registration = `${name}|${email}|${event}\n`;
-//     fs.appendFileSync(path.join(__dirname, 'data', 'registrations.txt'), registration);
-//     res.redirect('/events');
-// });
-
-
-
-//set the view engine to ejs
 app.set('view engine', 'ejs');
 
-//use res.render to load up an ejs view file
+//functions to save and get events
+const getEvents = () => {
+    const data = fs.readFileSync('./data/events.json','utf8');
+    return JSON.parse(data);
+};
 
-//events page
-app.get('/events', function(req,res){
-    res.sendFile(path.join(__dirname, 'pages', 'events.ejs'));
-    res.render('pages/events', {
-        events: jsonData
-    });
+const saveEvents = (events) => {
+    fs.writeFileSync('./data/events.json', JSON.stringify(events, null, 2));
+};
+
+//functions to save and get registrations
+const getRegister = () => {
+    const data = fs.readFileSync('./data/registrations.json','utf8');
+    return JSON.parse(data);
+};
+
+const saveRegister = (people) => {
+    fs.writeFileSync('./data/registrations.json', JSON.stringify(events, null, 2));
+};
+
+//routes
+
+//GET
+const events = getEvents();
+//index page
+app.get('/', (req,res) => {
+    res.render('pages/index', { events } );
 });
 
-//admin page
-app.get('/admin', function(req,res){
-    res.render('pages/admin', {
-        events: jsonData
-    });
+//register page
+app.get('/register', (req,res) => {
+    res.render('pages/register', { events } );
 });
 
-app.post('/submit', (req, res) => {
-    const { name, email, event } = req.body;
-    fs.readFile('data/registrations.json','utf8', (err, data) => {
-        if(err){console.error(err);}
-        let jsonData = JSON.stringify(JSON.parse(data));
-        jsonData.push({
-            name,
-            email,
-            event
-        });
-        fs.writeFile('data/registrations.json', JSON.stringify(jsonData) + '\n', (err) => {
-            if (err) {
-                console.error(err);
-                res.send('Error Writing to File')
-            }
-            res.redirect('/events')
-        })
-    })
+//POST
+app.post('/events', (req,res) => {
+    const events = getEvents();
+    const newEvent = {
+        id: events.length+1,
+        name:req.body.name,
+        date:req.body.date,
+        description:req.body.description
+    };
+    events.push(newEvent);
+    saveEvents(events);
+    res.redirect('/');
+})
+
+app.post('/submit', (req,res) => {
+    const registers = getRegister();
+    const newRegister = {
+        id: events.length+1,
+        name:req.body.name,
+        date:req.body.date,
+        description:req.body.description
+    };
+    events.push(newEvent);
+    saveEvents(events);
+    res.redirect('/');
+})
+
+//GET to show a single event
+app.get('/events/:id/edit', (req,res) => {
+    const events = getEvents();
+    const event = events.find(event => event.id == req.params.id);
+    res.render('pages/events', { event });
 });
 
-//listening to server on port 5000
-app.listen(PORT, ()=>{
-    console.log(`Server running on https://localhost:${PORT}`);
+//PUT to update event
+app.post('/events/:id', (req,res) => {
+    const events = getEvents();
+    const eventIndex = events.findIndex(event => event.id == req.params.id);
+    events[eventIndex].description = req.body.description;
+    events[eventIndex].name = req.body.name;
+    events[eventIndex].date = req.body.date;
+    saveEvents(events);
+    res.redirect('/');
+});
+
+//DELETE
+app.post('/events/:id/delete', (req,res) => {
+    let events = getEvents();
+    events = events.filter(event => event.id != req.params.id);
+    saveEvents(events);
+    res.redirect('/');
+});
+
+//server
+app.listen(PORT, () => {
+    console.log(`server running on https://localhost:${PORT}`);
 });
