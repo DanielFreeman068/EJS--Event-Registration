@@ -27,6 +27,7 @@
                         <h3 class="event-name"><%= event.name %></h3>
                         <h5><%= event.date %></h5>
                         <p class="event-desc"><%= event.description %></p>
+                        <p>Attendees : <%= event.attendees %></p>
                     </div>
                     <div class="event-buttons">
                         <button class="edit-button"><a href="/events/<%= event.id %>/edit">Edit</a></button>

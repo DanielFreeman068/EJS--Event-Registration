@@ -1,7 +1,12 @@
 [
-    {
-        "id": "1",
-        "name": "Daniel Freeman",
-        "email": "danielfree756@gmail.com"
-    }
+  {
+    "id": "1",
+    "name": "Daniel Freeman",
+    "email": "danielfree756@gmail.com"
+  },
+  {
+    "id": 2,
+    "name": "IM GONNA TOUCH SOMEONE",
+    "email": "danielfree756@gmail.com"
+  }
 ]

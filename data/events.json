@@ -1,14 +1,9 @@
 [
   {
-    "id": 1,
-    "name": "Dan",
-    "date": "2024-09-23",
-    "description": "code project"
-  },
-  {
-    "id": 2,
-    "name": "walk dog",
-    "date": "2024-09-30",
-    "description": "walk the dog at 5pm"
+    "id": 9,
+    "name": "dd",
+    "date": "2024-10-08",
+    "description": "run 5 miles",
+    "attendees": 0
   }
 ]

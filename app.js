@@ -47,23 +47,23 @@ const getRegister = () => {
 };
 
 const saveRegister = (registers) => {
-    fs.writeFileSync('./data/registrations.json', JSON.stringify(events, null, 2));
+    fs.writeFileSync('./data/registrations.json', JSON.stringify(registers, null, 2));
 };
 
 //routes
 
 //GET
-// const registers = getRegister();
+const registers = getRegister();
 const events = getEvents();
 //index page
 app.get('/', (req,res) => {
-    res.render('pages/index', { events } );
+    res.render('pages/index', { events, registers } );
 });
 
 //register page
-// app.get('/register', (req,res) => {
-//     res.render('pages/register', { events } );
-// });
+app.get('/register', (req,res) => {
+    res.render('pages/register', { events, registers } );
+});
 
 //POST
 app.post('/events', (req,res) => {
@@ -72,24 +72,33 @@ app.post('/events', (req,res) => {
         id: events.length+1,
         name:req.body.name,
         date:req.body.date,
-        description:req.body.description
+        description:req.body.description,
+        attendees:0,
     };
     events.push(newEvent);
     saveEvents(events);
     res.redirect('/');
 })
 
-// app.post('/submit', (req,res) => {
-//     const registers = getRegister();
-//     const newRegister = {
-//         id: registers.length+1,
-//         name:req.body.name,
-//         email:req.body.email,
-//     };
-//     registers.push(newRegister);
-//     saveRegister(registers);
-//     res.redirect('/register');
-// })
+app.post('/submit', (req,res) => {
+    const registers = getRegister();
+    const newRegister = {
+        id: registers.length+1,
+        name:req.body.name,
+        email:req.body.email,
+    };
+    registers.push(newRegister);
+    saveRegister(registers);
+    attendeesAdd();
+    res.redirect('/register');
+})
+
+// app.post('/submit', (req, res) => {
+//     const { name, email, event } = req.body;
+//     const registration = `${name}|${email}|${event}\n`;
+//     fs.appendFileSync(path.join(__dirname, 'data', 'registrations.txt'), registration);
+//     res.redirect('/events');
+// });
 
 //GET to show a single event
 app.get('/events/:id/edit', (req,res) => {
@@ -121,3 +130,14 @@ app.post('/events/:id/delete', (req,res) => {
 app.listen(PORT, () => {
     console.log(`server running on https://localhost:${PORT}`);
 });
+
+function attendeesAdd(index, value) {
+    const events = getEvents();
+    const eventIdx = events.findIndex(item => item.id == index);
+    if(value == 1) {
+        events[eventIdx].attendees++;
+    } else {
+        events[eventIdx].attendees--;
+    }
+    saveEvents(events);
+}
