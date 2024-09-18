@@ -13,7 +13,7 @@
             <label for="event">Event:</label>
             <select id="event" name="event">
                 <% events.forEach(function(event) { %>
-                    <option><%= event.name %></option>
+                    <option value="<%= event.id %>"><%= event.name %></option>
                 <% }); %> 
             </select> 
             <label for="name">Name:</label>

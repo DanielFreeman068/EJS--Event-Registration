@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "id": 1,
+    "name": "run",
+    "date": "2024-09-25",
+    "description": "run 5 miles",
+    "attendees": 0
+  }
+]
