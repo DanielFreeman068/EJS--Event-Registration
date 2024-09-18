@@ -53,15 +53,18 @@ const saveRegister = (registers) => {
 //routes
 
 //GET
-const registers = getRegister();
-const events = getEvents();
+
 //index page
 app.get('/', (req,res) => {
+    const registers = getRegister();
+    const events = getEvents();
     res.render('pages/index', { events, registers } );
 });
 
 //register page
 app.get('/register', (req,res) => {
+    const registers = getRegister();
+    const events = getEvents();
     res.render('pages/register', { events, registers } );
 });
 
