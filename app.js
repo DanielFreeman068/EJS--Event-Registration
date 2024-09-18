@@ -46,13 +46,14 @@ const getRegister = () => {
     return JSON.parse(data);
 };
 
-const saveRegister = (people) => {
+const saveRegister = (registers) => {
     fs.writeFileSync('./data/registrations.json', JSON.stringify(events, null, 2));
 };
 
 //routes
 
 //GET
+// const registers = getRegister();
 const events = getEvents();
 //index page
 app.get('/', (req,res) => {
@@ -60,9 +61,9 @@ app.get('/', (req,res) => {
 });
 
 //register page
-app.get('/register', (req,res) => {
-    res.render('pages/register', { events } );
-});
+// app.get('/register', (req,res) => {
+//     res.render('pages/register', { events } );
+// });
 
 //POST
 app.post('/events', (req,res) => {
@@ -78,18 +79,17 @@ app.post('/events', (req,res) => {
     res.redirect('/');
 })
 
-app.post('/submit', (req,res) => {
-    const registers = getRegister();
-    const newRegister = {
-        id: events.length+1,
-        name:req.body.name,
-        date:req.body.date,
-        description:req.body.description
-    };
-    events.push(newEvent);
-    saveEvents(events);
-    res.redirect('/');
-})
+// app.post('/submit', (req,res) => {
+//     const registers = getRegister();
+//     const newRegister = {
+//         id: registers.length+1,
+//         name:req.body.name,
+//         email:req.body.email,
+//     };
+//     registers.push(newRegister);
+//     saveRegister(registers);
+//     res.redirect('/register');
+// })
 
 //GET to show a single event
 app.get('/events/:id/edit', (req,res) => {
