@@ -1,9 +1,74 @@
 [
   {
     "id": 1,
-    "name": "run",
+    "name": "Red Robin",
     "date": "2024-09-25",
-    "description": "run 5 miles",
-    "attendees": 0
+    "description": "Red Robin fundraiser"
+  },
+  {
+    "id": 2,
+    "name": "Charity Bake Sale",
+    "date": "2024-10-02",
+    "description": "A bake sale to support local families in need"
+  },
+  {
+    "id": 3,
+    "name": "Community Clean-Up Day",
+    "date": "2024-10-10",
+    "description": "Join us to beautify our local parks and streets"
+  },
+  {
+    "id": 4,
+    "name": "Annual Charity Run",
+    "date": "2024-11-05",
+    "description": "A 5K run to raise funds for cancer research"
+  },
+  {
+    "id": 5,
+    "name": "Book Fair",
+    "date": "2024-11-15",
+    "description": "A fair to promote literacy and raise funds for school programs"
+  },
+  {
+    "id": 6,
+    "name": "Holiday Food Drive",
+    "date": "2024-12-01",
+    "description": "Collecting food donations for local food banks"
+  },
+  {
+    "id": 7,
+    "name": "Spring Festival",
+    "date": "2025-04-10",
+    "description": "A festival to celebrate the arrival of spring with food and activities"
+  },
+  {
+    "id": 8,
+    "name": "Pet Adoption Day",
+    "date": "2025-04-20",
+    "description": "Helping local shelters find homes for animals in need"
+  },
+  {
+    "id": 9,
+    "name": "Art in the Park",
+    "date": "2025-05-15",
+    "description": "An outdoor art show featuring local artists and craftspeople"
+  },
+  {
+    "id": 10,
+    "name": "Music for a Cause",
+    "date": "2025-06-05",
+    "description": "A concert to benefit mental health awareness programs"
+  },
+  {
+    "id": 11,
+    "name": "Summer Reading Program",
+    "date": "2025-07-01",
+    "description": "Encouraging children to read over the summer with fun activities"
+  },
+  {
+    "id": 12,
+    "name": "Back to School Bash",
+    "date": "2025-08-15",
+    "description": "A community event to prepare kids for the new school year"
   }
 ]

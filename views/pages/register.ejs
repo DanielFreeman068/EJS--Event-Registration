@@ -7,19 +7,17 @@
     <title>Admin Event Registration</title>
 </head>
 <body>
-    <div>
-        <h1>Register</h1>
+    <h1 class="header">Welcome to the Registration page</h1>
+    <div class="form">
         <form action="/submit" method="POST">
-            <label for="event">Event:</label>
-            <select id="event" name="event">
+            <h1 class="header">Register</h1><br>
+            <select id="event" name="event" placeholder="       select which event">
                 <% events.forEach(function(event) { %>
                     <option value="<%= event.id %>"><%= event.name %></option>
                 <% }); %> 
             </select> 
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input placeholder="Name" type="text" id="name" name="name" required>
+            <input placeholder="Email" type="email" id="email" name="email" required>
             <button type="submit">Register</button>
         </form>
     </div>

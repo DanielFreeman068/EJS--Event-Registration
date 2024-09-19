@@ -2,7 +2,18 @@ body{
     background-color: #C8D9E6;
     margin:0;
     padding:0;
+    min-width: 100vw;
+    overflow-x: hidden;
 }
+*{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+/* header text */
+.header{
+    font-size: 35px;
+    text-align: center;
+}
+
 ul{
     float:left;
     margin-left:3rem;
@@ -11,6 +22,7 @@ ul{
     box-shadow: 6px 10px 10px 2px black;
     border: 2px solid black;
     margin-bottom:5rem;
+    min-width: 500px;
 }
 li{
     list-style: none;
@@ -26,13 +38,92 @@ li:hover{
     color:aliceblue;
 }
 strong{
-    font-family:'Times New Roman', Times, serif;
     font-size:35px;
 }
 em{
-    font-family:'Times New Roman', Times, serif;
     font-size:20px;
 }
+
+
+/* form styling */
+.form{
+    right:-2%;
+    background-color: #567C8D;
+    box-shadow: 1px 2px 5px 1px black;
+    border: 2px solid black;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    padding:30px;
+    height:450px;
+    width:400px;
+    border-radius:25px;
+    margin-right:5rem;
+    text-align: center;
+}
+input{
+    border-radius:25px;
+    height:50px;
+    width:400px;
+    margin-top: 1rem;
+    font-size:20px;
+    text-align: center;
+    cursor: pointer;
+}
+select{
+    border-radius:25px;
+    height:55px;
+    width:400px;
+    font-size:20px;
+    text-align: center;
+    cursor: pointer;
+}
+button{
+    width:200px;
+    height:50px;
+    border-radius:25px;
+    margin-top:1rem;
+    background-color:#C8D9E6;
+    font-size: 25px;
+    transition: ease-in-out .5ss;
+}
+button:hover{
+    background-color: aliceblue;
+}
+::placeholder{
+    font-size:20px;
+    text-align: center;
+}
+option{
+    font-size:20px;
+    text-align: center;
+}
+
+/* tables styling */
+table{
+    width: 60%;
+    background-color: #567C8D;
+    margin-left: 3rem;
+    border-radius:25px;
+    box-shadow: 1px 2px 5px 1px black;
+    border: 2px solid black;
+    margin-bottom:6rem;
+}
+th{
+    font-size:25px;
+}
+tr{
+    height:75px;
+    font-weight: bold;
+}
+td{
+    border:1px solid black;
+    text-align: center;
+    font-size:17px;
+}
+
+/* footer */
 footer {
     background-color: #333;
     color: #fff;

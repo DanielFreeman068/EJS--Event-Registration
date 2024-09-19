@@ -7,15 +7,14 @@
     <title>Admin Event Registration</title>
 </head>
 <body>
+    <h1 class="header">Welcome to the Admin page</h1>
     <div class="form">
         <form action="/events" method="POST">
-            <fieldset>
-                <legend>Add New Event</legend>
-                <input type="text" name="name" placeholder="New event name" required>
-                <input type="text" name="description" placeholder="New event description" required>
-                <input type="date" name="date" required>
-                <button type="submit">Add Event</button>
-            </fieldset>         
+            <h1 class="header">Event Form</h1>
+            <input type="text" name="name" placeholder="New event name" required><br>
+            <input type="text" name="description" placeholder="New event description" required><br>
+            <input type="date" name="date" required><br>
+            <button type="submit">Add Event</button>        
         </form>
     </div>
     <!-- <%- include('../partials/body') %> -->
@@ -27,7 +26,6 @@
                         <h3 class="event-name"><%= event.name %></h3>
                         <h5><%= event.date %></h5>
                         <p class="event-desc"><%= event.description %></p>
-                        <p>Attendees : <%= event.attendees %></p>
                     </div>
                     <div class="event-buttons">
                         <button class="edit-button"><a href="/events/<%= event.id %>/edit">Edit</a></button>
