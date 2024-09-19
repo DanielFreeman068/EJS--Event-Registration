@@ -1,3 +1,4 @@
+/* general styling */
 body{
     background-color: #C8D9E6;
     margin:0;
@@ -13,44 +14,52 @@ body{
     font-size: 35px;
     text-align: center;
 }
-
-ul{
-    float:left;
-    margin-left:3rem;
-    margin-top:3rem;
-    background-color:#567C8D;
-    box-shadow: 6px 10px 10px 2px black;
-    border: 2px solid black;
-    margin-bottom:5rem;
-    min-width: 500px;
+.headerText {
+    text-align: center;
+    margin-top:2rem;
+    font-size:40px;
 }
-li{
-    list-style: none;
-    border-bottom: 2px solid black;
-    margin-top:1rem;
-    margin-right:2rem;
-    transition:ease-in-out .5s;
-}
-li:last-child{
-    border-bottom: 2px solid #567C8D;
-}
-li:hover{
-    color:aliceblue;
-}
-strong{
-    font-size:35px;
-}
-em{
-    font-size:20px;
-}
-
 
 /* form styling */
-.form{
-    right:-2%;
+.formEdit a{
+    background-color: #C8D9E6;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.exit{
+    position: absolute;
+    top:5%;
+    left:5%;
+}
+.ion:hover{
+    color:#567C8D;
+}
+.formEdit{
+    margin-top:2rem;
+    top:50%;
+    left:50%;
     background-color: #567C8D;
-    box-shadow: 1px 2px 5px 1px black;
-    border: 2px solid black;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    padding:30px;
+    height:650px;
+    width:400px;
+    border-radius:25px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+.form{
+    right:3%;
+    background-color: #567C8D;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
     display: flex;
     position: fixed;
     justify-content: center;
@@ -59,7 +68,6 @@ em{
     height:450px;
     width:400px;
     border-radius:25px;
-    margin-right:5rem;
     text-align: center;
 }
 input{
@@ -79,7 +87,12 @@ select{
     text-align: center;
     cursor: pointer;
 }
-button{
+textarea{
+    width:400px;
+    border-radius:5px;
+    font-size:20px;
+}
+.formButton{
     width:200px;
     height:50px;
     border-radius:25px;
@@ -88,7 +101,7 @@ button{
     font-size: 25px;
     transition: ease-in-out .5ss;
 }
-button:hover{
+.formButton:hover{
     background-color: aliceblue;
 }
 ::placeholder{
@@ -100,30 +113,6 @@ option{
     text-align: center;
 }
 
-/* tables styling */
-/*
-table{
-    width: 60%;
-    background-color: #567C8D;
-    margin-left: 3rem;
-    border-radius:25px;
-    box-shadow: 1px 2px 5px 1px black;
-    border: 2px solid black;
-    margin-bottom:6rem;
-}
-th{
-    font-size:25px;
-}
-tr{
-    height:75px;
-    font-weight: bold;
-}
-td{
-    border:1px solid black;
-    text-align: center;
-    font-size:17px;
-}
-*/
 /* footer */
 footer {
     background-color: #333;
@@ -141,38 +130,65 @@ footer p {
     font-size: 14px;
 }
 
-/* testing table css */
+/* table css */
 .content-table {
     border-collapse: collapse;
-    margin: 25px 0;
+    margin-left:3rem;
     font-size:0.9em;
-    min-width:400px;
+    min-width:60%;
     border-radius: 5px 5px 0 0;
     overflow:hidden;
     box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    margin-bottom:5rem;
+    max-width:60%;
 }
 .content-table thead tr {
-    background-color: #009879;
+    background-color: #567C8D;
     color:#ffffff;
     text-align:left;
     font-weight:bold;
+    height:70px;
 }
 .content-table th,
 .content-table td {
     padding: 12px 15px;
+    text-align: left;
+}
+.content-table th{
+    max-width: 300px;
+    overflow-wrap:break-word;
+}
+.content-table tbody tr {
+    height: 50px;
+}
+.content-table tbody tr:hover {
+    color: #567C8D;
 }
 .content-table tbody tr {
     border-bottom: 1px solid #dddddd;
 }
-.content-table tbody tr:nth-of-type(even) {
-    background-color:#f3f3f3'
+.content-table tbody tr:nth-child(even) {
+    background-color:#f3f3f3;
 }
 .content-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879
-}
-.content-table tbody tr:active-row {
-    font-weight:bold;
-    color:#009879;
+    border-bottom: 2px solid #567C8D
 }
 
-    
+/* edit and delete icons */
+ion-icon{
+    color:black;
+    width:20px;
+    height:25px;
+}
+.adminButton{
+    border-radius:50%;
+    cursor: pointer;
+    border: 1px solid transparent;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.adminButton:hover{
+    background-color: rgb(233, 230, 230);
+}

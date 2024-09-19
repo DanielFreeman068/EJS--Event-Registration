@@ -7,7 +7,9 @@
     <title>Admin Event Registration</title>
 </head>
 <body>
-    <h1 class="header">Welcome to the Registration page</h1>
+    <!-- welcome text -->
+    <h1 class="headerText">Welcome to the Registration page</h1>
+    <!-- form on right side of screen -->
     <div class="form">
         <form action="/submit" method="POST">
             <h1 class="header">Register</h1><br>
@@ -18,10 +20,27 @@
             </select> 
             <input placeholder="Name" type="text" id="name" name="name" required>
             <input placeholder="Email" type="email" id="email" name="email" required>
-            <button type="submit">Register</button>
+            <button onclick="validateForm();" class="formButton" type="submit">Register</button>
         </form>
     </div>
+    <!-- partials for body and footer -->
     <%- include('../partials/body') %>
     <%- include('../partials/footer') %>
+    <script>
+        // function to send message when you delete
+        function deleteMessage(){
+            alert("Successfully deleted Event!")
+        }
+        // function to validate form and then send success message
+        function validateForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            if (!name || !email) {
+                alert('Please fill out all fields.');
+                return;
+            }
+            alert('Successfully signed up for Event!');
+        }
+    </script>
 </body>
 </html>

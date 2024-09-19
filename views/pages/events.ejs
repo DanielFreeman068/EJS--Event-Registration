@@ -7,15 +7,28 @@
     <title>Edit Event</title>
 </head>
 <body>
-    <h1>Edit Event</h1>
-    <div class="form">
+    <!-- welcome text -->
+    <h1 class="headerText">Edit Event</h1>
+    <!-- form to edit -->
+    <div class="formEdit">
         <form action="/events/<%= event.id %>" method="POST">
+            <h2>Event Name</h2>
             <input type="text" name="name" value="<%= event.name %>" required><br>
+            <h2>Event Date</h2>
             <input type="date" name="date" value="<%= event.date %>" required></br>
+            <h2>Event Description</h2>
             <textarea cols="40" rows="10" name="description" required><%= event.description %></textarea><br>
-            <button type="submit">Update Event</button><br>
+            <button onclick="editMessage();" class="formButton" type="submit">Update Event</button><br>
         </form>
-        <a href="/">Back to list</a>
+        <!-- hyperlink back to index page -->
+        <a class="exit" href="/"><ion-icon class="ion" name="exit-outline"></ion-icon></a>
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        function editMessage(){
+            alert("Successfully edited Event!")
+        }
+    </script>
 </body>
 </html>
