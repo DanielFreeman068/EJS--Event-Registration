@@ -1,2 +1,0 @@
-# EJS: Event Registration
- 
