@@ -102,5 +102,5 @@ app.post('/events/:id/delete', (req,res) => {
 
 //server
 app.listen(PORT, () => {
-    console.log(`server running on https://localhost:${PORT}`);
+    console.log(`server running on http://localhost:${PORT}`);
 });
