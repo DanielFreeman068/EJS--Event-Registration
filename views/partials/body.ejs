@@ -9,11 +9,11 @@
     </thead>
     <tbody>
         <% events.forEach(function(event) { %>
-        <tr class="active-row">
-            <th><%= event.name %></th>
-            <th><%= event.description %></th>
-            <th><%= event.date %></th>
-        </tr>
-        <%});%>
+            <tr class="active-row">
+            <td><%= event.name %></td>
+            <td><%= event.description %></td>
+            <td><%= event.date %></td>
+            </tr>
+        <% }); %>
     </tbody>
 </table>

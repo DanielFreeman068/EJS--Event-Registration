@@ -1,194 +1,158 @@
-/* general styling */
-body{
-    background-color: #C8D9E6;
-    margin:0;
-    padding:0;
-    min-width: 100vw;
-    overflow-x: hidden;
-}
-*{
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-/* header text */
-.header{
-    font-size: 35px;
-    text-align: center;
-}
-.headerText {
-    text-align: center;
-    margin-top:2rem;
-    font-size:40px;
-}
-
-/* form styling */
-.formEdit a{
-    background-color: #C8D9E6;
-    box-shadow: 0 0 20px rgba(0,0,0,0.15);
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.exit{
-    position: absolute;
-    top:5%;
-    left:5%;
-}
-.ion:hover{
-    color:#567C8D;
-}
-.formEdit{
-    margin-top:2rem;
-    top:50%;
-    left:50%;
-    background-color: #567C8D;
-    box-shadow: 0 0 20px rgba(0,0,0,0.15);
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    padding:30px;
-    height:650px;
-    width:400px;
-    border-radius:25px;
-    text-align: center;
-    transform: translate(-50%, -50%);
-}
-.form{
-    right:3%;
-    background-color: #567C8D;
-    box-shadow: 0 0 20px rgba(0,0,0,0.15);
-    display: flex;
-    position: fixed;
-    justify-content: center;
-    align-items: center;
-    padding:30px;
-    height:450px;
-    width:400px;
-    border-radius:25px;
-    text-align: center;
-}
-input{
-    border-radius:25px;
-    height:50px;
-    width:400px;
-    margin-top: 1rem;
-    font-size:20px;
-    text-align: center;
-    cursor: pointer;
-}
-select{
-    border-radius:25px;
-    height:55px;
-    width:400px;
-    font-size:20px;
-    text-align: center;
-    cursor: pointer;
-}
-textarea{
-    width:400px;
-    border-radius:5px;
-    font-size:20px;
-}
-.formButton{
-    width:200px;
-    height:50px;
-    border-radius:25px;
-    margin-top:1rem;
-    background-color:#C8D9E6;
-    font-size: 25px;
-    transition: ease-in-out .5ss;
-}
-.formButton:hover{
-    background-color: aliceblue;
-}
-::placeholder{
-    font-size:20px;
-    text-align: center;
-}
-option{
-    font-size:20px;
-    text-align: center;
-}
-
-/* footer */
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    margin-top:5rem;
-    padding: 10px 0;
-    width: 100%;
-    position:fixed;
-    bottom:0;
-}
-
-footer p {
+/* Base styles */
+body {
     margin: 0;
-    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f5f5;
+    color: #333;
 }
 
-/* table css */
+/* Container for layout */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+/* Header text */
+.headerText {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #2c3e50;
+}
+
+/* Form styles */
+.form-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.form h2 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.form input,
+.form select {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form input:focus,
+.form select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.form button {
+    width: 100%;
+    padding: 0.75rem;
+    background: #3498db;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.form button:hover {
+    background: #2980b9;
+}
+
+/* Responsive tweaks */
+@media (max-width: 500px) {
+    .form-container {
+    padding: 1.5rem;
+    }
+
+    .headerText {
+    font-size: 1.5rem;
+    }
+}
+
+
+/* Event table styles */
 .content-table {
+    width: 100%;
     border-collapse: collapse;
-    margin-left:3rem;
-    font-size:0.9em;
-    min-width:60%;
-    border-radius: 5px 5px 0 0;
-    overflow:hidden;
-    box-shadow: 0 0 20px rgba(0,0,0,0.15);
-    margin-bottom:5rem;
-    max-width:60%;
+    margin: 2rem 0;
+    font-size: 1rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
 }
-.content-table thead tr {
-    background-color: #567C8D;
-    color:#ffffff;
-    text-align:left;
-    font-weight:bold;
-    height:70px;
-}
-.content-table th,
-.content-table td {
-    padding: 12px 15px;
+
+.content-table thead {
+    background-color: #3498db;
+    color: white;
     text-align: left;
 }
-.content-table th{
-    max-width: 300px;
-    overflow-wrap:break-word;
-}
-.content-table tbody tr {
-    height: 50px;
-}
-.content-table tbody tr:hover {
-    color: #567C8D;
-}
-.content-table tbody tr {
+
+.content-table th,
+.content-table td {
+    padding: 0.75rem 1rem;
     border-bottom: 1px solid #dddddd;
 }
-.content-table tbody tr:nth-child(even) {
-    background-color:#f3f3f3;
-}
-.content-table tbody tr:last-of-type {
-    border-bottom: 2px solid #567C8D
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f9f9f9;
 }
 
-/* edit and delete icons */
-ion-icon{
-    color:black;
-    width:20px;
-    height:25px;
+.content-table tbody tr:hover {
+    background-color: #f1f1f1;
 }
-.adminButton{
-    border-radius:50%;
-    cursor: pointer;
-    border: 1px solid transparent;
-    box-shadow: 0 0 20px rgba(0,0,0,0.15);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.content-table .active-row {
+    font-weight: 500;
 }
-.adminButton:hover{
-    background-color: rgb(233, 230, 230);
+
+/* Responsive table */
+@media (max-width: 768px) {
+    .content-table thead {
+    display: none;
+    }
+
+    .content-table, 
+    .content-table tbody, 
+    .content-table tr, 
+    .content-table td {
+    display: block;
+    width: 100%;
+    }
+
+    .content-table tr {
+    margin-bottom: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 1rem;
+    }
+
+    .content-table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+    }
+
+    .content-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem;
+    top: 0.75rem;
+    font-weight: bold;
+    text-align: left;
+    text-transform: capitalize;
+    }
 }

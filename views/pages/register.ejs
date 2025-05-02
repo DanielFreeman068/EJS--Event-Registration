@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="/public/css/styles.css">
-    <title>Admin Event Registration</title>
-</head>
-<body>
-    <!-- welcome text -->
-    <h1 class="headerText">Welcome to the Registration page</h1>
-    <!-- form on right side of screen -->
-    <div class="form">
-        <form action="/submit" method="POST">
-            <h1 class="header">Register</h1><br>
-            <select id="event" name="event" placeholder="       select which event">
-                <% events.forEach(function(event) { %>
-                    <option value="<%= event.id %>"><%= event.name %></option>
-                <% }); %> 
-            </select> 
-            <input placeholder="Name" type="text" id="name" name="name" required>
-            <input placeholder="Email" type="email" id="email" name="email" required>
-            <button onclick="validateForm();" class="formButton" type="submit">Register</button>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Admin Event Registration</title>
+        <link rel="stylesheet" href="/public/css/styles.css" />
+    </head>
+    <body>
+    <div class="container">
+        <h1 class="headerText">Welcome to the Registration Page</h1>
+        <div class="form-container">
+        <form action="/submit" method="POST" class="form">
+            <h2>Register</h2>
+            <select id="event" name="event" required>
+            <% events.forEach(function(event) { %>
+                <option value="<%= event.id %>"><%= event.name %></option>
+            <% }); %>
+            </select>
+            <input type="text" id="name" name="name" placeholder="Name" required />
+            <input type="email" id="email" name="email" placeholder="Email" required />
+            <button onclick="validateForm();" type="submit">Register</button>
         </form>
+        </div>
     </div>
-    <!-- partials for body and footer -->
+
     <%- include('../partials/body') %>
     <%- include('../partials/footer') %>
+
     <script>
-        // function to send message when you delete
-        function deleteMessage(){
-            alert("Successfully deleted Event!")
+        function deleteMessage() {
+            alert("Successfully deleted Event!");
         }
-        // function to validate form and then send success message
+
         function validateForm() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
             if (!name || !email) {
-                alert('Please fill out all fields.');
+                alert("Please fill out all fields.");
                 return;
             }
-            alert('Successfully signed up for Event!');
+            alert("Successfully signed up for Event!");
         }
     </script>
-</body>
+    </body>
 </html>
