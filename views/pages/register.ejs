@@ -9,7 +9,6 @@
     <body>
     <div class="container">
         <h1 class="headerText">Welcome to the Registration Page</h1>
-        <div class="form-container">
         <form action="/submit" method="POST" class="form">
             <h2>Register</h2>
             <select id="event" name="event" required>
@@ -21,7 +20,6 @@
             <input type="email" id="email" name="email" placeholder="Email" required />
             <button onclick="validateForm();" type="submit">Register</button>
         </form>
-        </div>
     </div>
 
     <%- include('../partials/body') %>

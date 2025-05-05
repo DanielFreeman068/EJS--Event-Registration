@@ -1,158 +1,423 @@
-/* Base styles */
-body {
+/* Global Styles */
+:root {
+    --primary-color: #4a6fa5;
+    --primary-dark: #345481;
+    --primary-light: #6e8cbb;
+    --accent-color: #ff6b6b;
+    --text-color: #333;
+    --light-gray: #f5f5f5;
+    --medium-gray: #e0e0e0;
+    --dark-gray: #888;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --radius: 8px;
+}
+
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f5f5f5;
-    color: #333;
 }
 
-/* Container for layout */
+body {
+    background-color: #f9f9f9;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-/* Header text */
+/* Header Styles */
 .headerText {
-    font-size: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* Form Styles */
+/* Form Container for Registration Page */
+.form-container {
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+/* Common Form Styles */
+.form, .form-container form {
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.form h1.header,
+.form h2,
+.form-container form h2 {
+    color: var(--primary-color);
     margin-bottom: 1.5rem;
     text-align: center;
-    color: #2c3e50;
+    font-size: 1.8rem;
+    font-weight: 600;
 }
 
-/* Form styles */
-.form-container {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+.form h1.header {
+    font-size: 1.8rem;
 }
 
-.form h2 {
-    margin-bottom: 1rem;
-    color: #2c3e50;
-    text-align: center;
-}
-
+.form select,
 .form input,
-.form select {
+.form-container form select,
+.form-container form input {
+    display: block;
     width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--radius);
     font-size: 1rem;
-    transition: border-color 0.2s;
+    transition: border 0.3s, box-shadow 0.3s;
 }
 
+.form select:focus,
 .form input:focus,
-.form select:focus {
-    border-color: #3498db;
+.form-container form select:focus,
+.form-container form input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
     outline: none;
 }
 
-.form button {
-    width: 100%;
-    padding: 0.75rem;
-    background: #3498db;
+.form button,
+.form button.formButton,
+.form-container form button {
+    background-color: var(--primary-color);
     color: white;
-    font-size: 1rem;
     border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.form button:hover {
-    background: #2980b9;
-}
-
-/* Responsive tweaks */
-@media (max-width: 500px) {
-    .form-container {
-    padding: 1.5rem;
-    }
-
-    .headerText {
-    font-size: 1.5rem;
-    }
-}
-
-
-/* Event table styles */
-.content-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 2rem 0;
+    border-radius: var(--radius);
+    padding: 0.8rem 1.5rem;
     font-size: 1rem;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
 }
 
-.content-table thead {
-    background-color: #3498db;
+.form button:hover,
+.form button.formButton:hover,
+.form-container form button:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Admin Table Button Styles */
+.adminButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.adminButton:hover {
+    background-color: rgba(74, 111, 165, 0.1);
+}
+
+.adminButton a {
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.adminButton ion-icon {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+}
+
+.adminButton:hover ion-icon[name="trash-outline"] {
+    color: var(--accent-color);
+}
+
+th .adminButton {
+    margin: 0 auto;
+}
+
+/* Table Styles */
+.content-table {
+    width: 95%;
+    border-collapse: collapse;
+    margin: 2rem auto;
+    font-size: 0.9rem;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.content-table thead tr {
+    background-color: var(--primary-color);
     color: white;
     text-align: left;
+    font-weight: bold;
 }
 
 .content-table th,
 .content-table td {
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid #dddddd;
+    padding: 1rem 1.5rem;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid var(--medium-gray);
 }
 
 .content-table tbody tr:nth-of-type(even) {
-    background-color: #f9f9f9;
+    background-color: var(--light-gray);
 }
 
-.content-table tbody tr:hover {
-    background-color: #f1f1f1;
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid var(--primary-color);
 }
 
-.content-table .active-row {
+.content-table tbody tr.active-row {
     font-weight: 500;
+    color: var(--primary-color);
 }
 
-/* Responsive table */
-@media (max-width: 768px) {
-    .content-table thead {
-    display: none;
-    }
+.content-table tbody th,
+.content-table tbody td {
+    font-weight: normal;
+    text-align: left;
+    vertical-align: middle;
+}
 
-    .content-table, 
-    .content-table tbody, 
-    .content-table tr, 
-    .content-table td {
+/* Footer Styles */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Edit Event Page Styles */
+.formEdit {
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2.5rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    position: relative;
+}
+
+.formEdit h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.formEdit input,
+.formEdit textarea {
     display: block;
     width: 100%;
-    }
-
-    .content-table tr {
+    padding: 0.8rem 1rem;
     margin-bottom: 1.5rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    padding: 1rem;
-    }
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    transition: border 0.3s, box-shadow 0.3s;
+}
 
-    .content-table td {
-    text-align: right;
-    padding-left: 50%;
-    position: relative;
-    }
+.formEdit input:focus,
+.formEdit textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+    outline: none;
+}
 
-    .content-table td::before {
-    content: attr(data-label);
+.formEdit textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.formEdit button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+    margin-bottom: 1rem;
+}
+
+.formEdit button:hover {
+    background-color: var(--primary-dark);
+}
+
+.exit {
     position: absolute;
-    left: 1rem;
-    top: 0.75rem;
-    font-weight: bold;
-    text-align: left;
-    text-transform: capitalize;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: var(--dark-gray);
+    font-size: 1.8rem;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exit:hover {
+    color: var(--accent-color);
+}
+
+.ion {
+    font-size: 1.8rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .content-table {
+        width: 100%;
+        font-size: 0.85rem;
+    }
+    
+    .content-table th,
+    .content-table td {
+        padding: 0.8rem 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .form,
+    .form-container {
+        max-width: 95%;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+    
+    .headerText {
+        font-size: 2rem;
+    }
+    
+    .form-container,
+    .formEdit {
+        padding: 1.5rem;
+    }
+
+    .formEdit {
+        max-width: 95%;
+    }
+    
+    .formEdit h2 {
+        font-size: 1.2rem;
+    }
+    
+    /* Table responsive styles */
+    .content-table {
+        width: 95%;
+        margin: 2rem auto;
+        border: 0;
+        box-shadow: none;
+    }
+    
+    .content-table thead {
+        display: none;
+    }
+    
+    .content-table, 
+    .content-table tbody, 
+    .content-table tr {
+        display: block;
+        width: 100%;
+    }
+    
+    .content-table tr {
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--medium-gray);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        background-color: white;
+        overflow: hidden;
+    }
+    
+    .content-table tbody th,
+    .content-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--medium-gray);
+        padding: 0.8rem 1rem;
+        text-align: right;
+    }
+    
+    .content-table tbody th:before,
+    .content-table td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: var(--primary-color);
+        padding-right: 0.5rem;
+        text-align: left;
+        flex: 1;
+    }
+    
+    /* Special styling for action buttons */
+    .content-table tbody th:nth-last-child(-n+2) {
+        display: inline-block;
+        width: 50%;
+        text-align: center;
+        padding: 0.8rem 0;
+        border-bottom: none;
+    }
+    
+    .content-table tbody th:nth-last-child(-n+2):before {
+        display: none;
+    }
+    
+    .content-table tbody th:last-child {
+        border-bottom: 0;
+    }
+    
+    .content-table tr.active-row {
+        border-left: 3px solid var(--primary-color);
+    }
+}
+
+@media (max-width: 480px) {
+    .content-table {
+        width: 98%;
+        margin: 1.5rem auto;
+    }
+    
+    .content-table tbody th,
+    .content-table td {
+        padding: 0.7rem;
+        font-size: 0.85rem;
+    }
+    
+    .adminButton ion-icon {
+        font-size: 1.2rem;
     }
 }
